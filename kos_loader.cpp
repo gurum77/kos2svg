@@ -390,6 +390,10 @@ int kos_loader::Run(CString filename, CString pathonly, CString filename_only)
 	//buf00.Format("%f %f %f %f", screendata[2], screendata[3], screendata[0], screendata[1]);
 	//m_pnode1->SetAttribute("viewbox", buf00);
 
+	if (screendata[2] < -90000000 || screendata[2] > 90000000)
+		screendata[2] = 0;
+	if (screendata[3] < -90000000 || screendata[3] > 90000000)
+		screendata[3] = 0;
 
 	m_doc->LinkEndChild(m_pnode1);
 
